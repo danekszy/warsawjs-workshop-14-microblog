@@ -1,32 +1,35 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../constants'
+import {
+  FETCHING_DATA,
+  FETCHING_COMMENTS,
+  FETCHING_COMMENTS_SUCCESS,
+  EXPAND_YELL
+} from "../constants";
 const initialState = {
   data: [],
   dataFetched: false,
   isFetching: false,
-  error: false
-}
+  expandedYell: null,
+  error: false,
+  comments: []
+};
 
-export default function dataReducer (state = initialState, action) {
+export default function dataReducer(state = initialState, action) {
   switch (action.type) {
     case FETCHING_DATA:
-      return {
-        ...state,
-        data: [],
+      return Object.assign({}, state, {
+        data: action.payload,
         isFetching: true
-      }
-    case FETCHING_DATA_SUCCESS:
+      });
+    case FETCHING_COMMENTS_SUCCESS:
+      return Object.assign({}, state, {
+        comments: action.data
+      });
+    case EXPAND_YELL:
       return {
         ...state,
-        isFetching: false,
-        data: action.data
-      }
-    case FETCHING_DATA_FAILURE:
-      return {
-        ...state,
-        isFetching: false,
-        error: true
-      }
+        expandedYell: action.yellId
+      };
     default:
-      return state
+      return state;
   }
 }

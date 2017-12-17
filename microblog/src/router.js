@@ -9,7 +9,7 @@ import { fetchData } from './actions'
 
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
-import HomeScreen from "./components/Home";
+import HomeScreen from "./components/HomeScreen";
 import ProfileScreen from "./components/Profile";
 
 const headerStyle = {

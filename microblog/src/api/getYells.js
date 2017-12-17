@@ -1,5 +1,5 @@
 const people = [
-  { name: "Muhammed", age: 26 },
+  { name: "Danny", age: 26 },
   { name: "Musa", age: 26 },
   { name: "Bartek", age: 26 }
 ];
